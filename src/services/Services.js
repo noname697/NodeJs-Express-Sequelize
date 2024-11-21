@@ -1,4 +1,4 @@
-const datasource = require('../models')
+const dataSource = require('../models')
 
 class Services {
     constructor(nomeDoModel) {
@@ -6,16 +6,16 @@ class Services {
     }
 
     async pegaTodosOsRegistros() {
-        return datasource[this.model].findAll()
+        return dataSource[this.model].findAll()
     }
 
-    // async pegaUmRegistroPorId(id) {
-    //   return dataSource[this.model].findByPk(id);
-    // }
+    async pegaUmRegistroPorId(id) {
+      return dataSource[this.model].findByPk(id);
+    }
 
-    // async criaRegistro(dadosDoRegistro) {
-    //   return dataSource[this.model].create(dadosDoRegistro);
-    // }
+    async criaRegistro(dadosDoRegistro) {
+      return dataSource[this.model].create(dadosDoRegistro);
+    }
 
 
     async atualizaRegistro(dadosAtualizados, id) {
@@ -30,9 +30,9 @@ class Services {
         return true
     }
 
-    // async excluiRegistro(id) {
-    //   return dataSource[this.model].destroy({ where: { id: id } });
-    // }
+    async excluiRegistro(id) {
+      return dataSource[this.model].destroy({ where: { id: id } });
+    }
 }
 
 module.exports = Services
